@@ -63,18 +63,18 @@ onMounted(() => {
 
         h1 {
             font-size: 36px;
-            color: #333;
+            color: var(--text-primary);
             margin-bottom: 10px;
 
             &::before {
                 content: '#';
-                color: #4CAF50;
+                color: var(--accent-color);
                 margin-right: 5px;
             }
         }
 
         p {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 16px;
         }
     }
@@ -88,9 +88,9 @@ onMounted(() => {
     .empty-state {
         text-align: center;
         padding: 80px 20px;
-        background: white;
+        background: var(--bg-secondary);
         border-radius: 12px;
-        color: #999;
+        color: var(--text-muted);
     }
 }
 </style>

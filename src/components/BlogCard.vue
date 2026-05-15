@@ -402,29 +402,4 @@ const goToTag = (tag, e) => {
     }
 }
 
-// 暗色主题支持（可选）
-@media (prefers-color-scheme: dark) {
-    .blog-card {
-        background: #2c2c2c;
-
-        .card-content {
-            .post-title {
-                color: #e0e0e0;
-            }
-
-            .post-excerpt {
-                color: #b0b0b0;
-            }
-
-            .post-tags .tag {
-                background: #3a3a3a;
-                color: #b0b0b0;
-            }
-
-            .post-footer {
-                border-top-color: #3a3a3a;
-            }
-        }
-    }
-}
 </style>

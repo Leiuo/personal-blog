@@ -73,21 +73,21 @@
 
         h1 {
             font-size: 36px;
-            color: #333;
+            color: var(--text-primary);
             margin-bottom: 10px;
         }
 
         p {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 18px;
         }
     }
 
     .about-content {
-        background: white;
+        background: var(--bg-secondary);
         border-radius: 12px;
         padding: 40px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow-light);
 
         .profile-section {
             text-align: center;
@@ -99,7 +99,7 @@
                 margin: 0 auto 20px;
                 border-radius: 50%;
                 overflow: hidden;
-                border: 3px solid #4CAF50;
+                border: 3px solid var(--accent-color);
 
                 img {
                     width: 100%;
@@ -109,12 +109,12 @@
             }
 
             h2 {
-                color: #333;
+                color: var(--text-primary);
                 margin-bottom: 15px;
             }
 
             p {
-                color: #666;
+                color: var(--text-secondary);
                 line-height: 1.6;
             }
         }
@@ -123,10 +123,10 @@
             margin-bottom: 30px;
 
             h3 {
-                color: #333;
+                color: var(--text-primary);
                 margin-bottom: 15px;
                 padding-bottom: 10px;
-                border-bottom: 2px solid #4CAF50;
+                border-bottom: 2px solid var(--accent-color);
                 display: inline-block;
             }
 
@@ -136,15 +136,15 @@
                 gap: 10px;
 
                 .skill-tag {
-                    background: #f0f0f0;
+                    background: var(--border-color);
                     padding: 6px 15px;
                     border-radius: 20px;
                     font-size: 14px;
-                    color: #333;
+                    color: var(--text-primary);
                     transition: all 0.3s;
 
                     &:hover {
-                        background: #4CAF50;
+                        background: var(--accent-color);
                         color: white;
                         transform: translateY(-2px);
                     }
@@ -157,7 +157,7 @@
                 gap: 12px;
 
                 .contact-link {
-                    color: #4CAF50;
+                    color: var(--accent-color);
                     text-decoration: none;
                     font-size: 16px;
                     transition: transform 0.3s;
@@ -170,7 +170,7 @@
 
             ul {
                 padding-left: 20px;
-                color: #666;
+                color: var(--text-secondary);
 
                 li {
                     margin: 8px 0;

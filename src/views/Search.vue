@@ -58,12 +58,12 @@ watch(keyword, () => {
 
         h1 {
             font-size: 36px;
-            color: #333;
+            color: var(--text-primary);
             margin-bottom: 10px;
         }
 
         p {
-            color: #666;
+            color: var(--text-secondary);
         }
     }
 
@@ -71,25 +71,25 @@ watch(keyword, () => {
         .empty-state {
             text-align: center;
             padding: 80px 20px;
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 12px;
 
             p {
-                color: #999;
+                color: var(--text-muted);
                 margin-bottom: 20px;
             }
 
             .back-home {
                 display: inline-block;
                 padding: 10px 20px;
-                background: #4CAF50;
+                background: var(--accent-color);
                 color: white;
                 text-decoration: none;
                 border-radius: 6px;
                 transition: background 0.3s;
 
                 &:hover {
-                    background: #45a049;
+                    background: var(--accent-hover);
                 }
             }
         }

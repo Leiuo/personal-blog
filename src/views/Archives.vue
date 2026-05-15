@@ -89,20 +89,20 @@ onMounted(() => {
 
         h1 {
             font-size: 36px;
-            color: #333;
+            color: var(--text-primary);
             margin-bottom: 10px;
         }
 
         p {
-            color: #666;
+            color: var(--text-secondary);
         }
     }
 
     .archives-content {
-        background: white;
+        background: var(--bg-secondary);
         border-radius: 12px;
         padding: 30px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow-light);
 
         .archive-year {
             margin-bottom: 40px;
@@ -113,10 +113,10 @@ onMounted(() => {
 
             .year-title {
                 font-size: 28px;
-                color: #4CAF50;
+                color: var(--accent-color);
                 margin-bottom: 20px;
                 padding-bottom: 10px;
-                border-bottom: 2px solid #eee;
+                border-bottom: 2px solid var(--border-color);
                 position: relative;
 
                 &::before {
@@ -126,7 +126,7 @@ onMounted(() => {
                     left: 0;
                     width: 50px;
                     height: 2px;
-                    background: #4CAF50;
+                    background: var(--accent-color);
                 }
             }
 
@@ -136,31 +136,31 @@ onMounted(() => {
                     grid-template-columns: 120px 1fr 100px;
                     gap: 20px;
                     padding: 15px;
-                    border-bottom: 1px solid #f0f0f0;
+                    border-bottom: 1px solid var(--border-color);
                     cursor: pointer;
                     transition: all 0.3s;
 
                     &:hover {
-                        background: #f9f9f9;
+                        background: var(--bg-primary);
                         transform: translateX(5px);
 
                         .post-title {
-                            color: #4CAF50;
+                            color: var(--accent-color);
                         }
                     }
 
                     .post-date {
-                        color: #999;
+                        color: var(--text-muted);
                         font-size: 14px;
                     }
 
                     .post-title {
-                        color: #333;
+                        color: var(--text-primary);
                         font-weight: 500;
                     }
 
                     .post-category {
-                        color: #4CAF50;
+                        color: var(--accent-color);
                         font-size: 12px;
                         text-align: right;
                     }
