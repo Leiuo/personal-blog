@@ -1,0 +1,43 @@
+[
+    {
+        "id": "vue3-guide",
+        "title": "Vue 3 组合式API完全指南",
+        "date": "2024-01-15",
+        "category": "技术",
+        "tags": [
+            "Vue",
+            "JavaScript",
+            "前端"
+        ],
+        "excerpt": "深入学习Vue 3的组合式API，掌握响应式编程的精髓",
+        "cover": "https://picsum.photos/id/100/400/200",
+        "filename": "vue3-guide.md"
+    },
+    {
+        "id": "web-best-practices",
+        "title": "探索现代Web开发的最佳实践",
+        "date": "2024-01-10",
+        "category": "技术",
+        "tags": [
+            "Web开发",
+            "工程化"
+        ],
+        "excerpt": "从开发工具到部署流程，全面了解现代Web开发的最佳实践",
+        "cover": "https://picsum.photos/id/101/400/200",
+        "filename": "web-best-practices.md"
+    },
+    {
+        "id": "japan-travel",
+        "title": "日本旅行日记：京都的秋天",
+        "date": "2024-01-05",
+        "category": "旅行",
+        "tags": [
+            "旅行",
+            "日本",
+            "摄影"
+        ],
+        "excerpt": "分享在日本京都的旅行经历，感受古都的秋天之美",
+        "cover": "https://picsum.photos/id/104/400/200",
+        "filename": "japan-travel.md"
+    }
+]
