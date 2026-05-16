@@ -1,12 +1,40 @@
 <template>
-    <div class="blog-detail" v-if="post">
-        <article class="post-content">
+    <div class="blog-detail">
+        <!-- 加载状态 -->
+        <div v-if="loading" class="state-box">
+            <svg class="spinner" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--accent-color)" stroke-width="2">
+                <circle cx="12" cy="12" r="10" stroke="var(--border-color)" stroke-width="2"/>
+                <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
+            </svg>
+            <p>加载中...</p>
+        </div>
+
+        <!-- 错误状态 -->
+        <div v-else-if="error" class="state-box">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--accent-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/>
+            </svg>
+            <p class="error-msg">{{ error }}</p>
+            <button class="retry-btn" @click="loadPost">重新加载</button>
+        </div>
+
+        <!-- 文章内容 -->
+        <article v-else-if="post" class="post-content">
             <header class="post-header">
                 <h1>{{ post.title }}</h1>
                 <div class="post-meta">
-                    <span>📅 {{ formatDate(post.date) }}</span>
-                    <span>📂 {{ post.category }}</span>
-                    <span>⏱️ {{ post.readingTime }} 分钟阅读</span>
+                    <span class="meta-item">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        {{ formatDate(post.date) }}
+                    </span>
+                    <span class="meta-item">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                        {{ post.category }}
+                    </span>
+                    <span class="meta-item">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        {{ post.readingTime }} 分钟阅读
+                    </span>
                 </div>
             </header>
 
@@ -31,6 +59,8 @@ import { useBlogStore } from '@/stores/blog'
 const route = useRoute()
 const blogStore = useBlogStore()
 const post = ref(null)
+const loading = ref(true)
+const error = ref('')
 
 const formatDate = (date) => {
     if (!date) return ''
@@ -39,8 +69,16 @@ const formatDate = (date) => {
 }
 
 const loadPost = async () => {
-    const id = route.params.id
-    post.value = await blogStore.fetchPostById(id)
+    loading.value = true
+    error.value = ''
+    try {
+        const id = route.params.id
+        post.value = await blogStore.fetchPostById(id)
+    } catch (e) {
+        error.value = e.message || '文章加载失败，请稍后重试'
+    } finally {
+        loading.value = false
+    }
 }
 
 onMounted(() => {
@@ -53,6 +91,47 @@ onMounted(() => {
     max-width: 900px;
     margin: 0 auto;
     padding: 40px 20px;
+
+    .state-box {
+        text-align: center;
+        padding: 80px 20px;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        box-shadow: var(--shadow-light);
+
+        p {
+            color: var(--text-secondary);
+            margin: 16px 0;
+        }
+
+        .error-msg {
+            color: var(--accent-color);
+        }
+
+        .retry-btn {
+            margin-top: 12px;
+            padding: 10px 24px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+
+            &:hover {
+                background: var(--accent-hover);
+            }
+        }
+    }
+
+    .spinner {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
 
     .post-content {
         background: var(--bg-secondary);
@@ -74,8 +153,15 @@ onMounted(() => {
             .post-meta {
                 color: var(--text-secondary);
                 display: flex;
+                flex-wrap: wrap;
                 gap: 20px;
                 font-size: 14px;
+
+                .meta-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
             }
         }
 

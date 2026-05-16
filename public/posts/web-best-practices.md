@@ -1,6 +1,6 @@
 ---
 title: 探索现代Web开发的最佳实践
-date: 2024-01-10
+date: 2026-05-10
 category: 技术
 tags: [Web开发, 工程化]
 ---
