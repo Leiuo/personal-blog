@@ -20,7 +20,7 @@
                 <div class="social-links">
                     <a href="https://github.com/Leiuo">GitHub</a>
                     <a href="https://mail.qq.com">QQ邮箱</a>
-                    <a href="#">知乎</a>
+                    <a href="https://www.zhihu.com/">知乎</a>
                 </div>
             </div>
         </div>
