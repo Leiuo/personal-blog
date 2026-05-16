@@ -2,7 +2,7 @@
     <div class="blog-card" @click="goToDetail">
         <!-- 封面图区域 -->
         <div class="card-cover" v-if="post.cover">
-            <img :src="post.cover" :alt="post.title" loading="lazy">
+            <img :src="coverUrl" :alt="post.title" loading="lazy">
             <div class="cover-overlay">
                 <span class="read-icon">📖</span>
             </div>
@@ -92,10 +92,19 @@ const props = defineProps({
 
 const router = useRouter()
 
+const BASE_URL = import.meta.env.BASE_URL || '/'
+
+const coverUrl = computed(() => {
+    const cover = props.post.cover
+    if (!cover) return ''
+    if (cover.startsWith('http://') || cover.startsWith('https://')) return cover
+    return BASE_URL + cover
+})
+
 // 分类颜色映射
 const categoryColor = computed(() => {
     const colors = {
-        '技术': '#4CAF50',
+        '技术': '#FF6B6B',
         '生活': '#FF9800',
         '随笔': '#9C27B0',
         '旅行': '#2196F3',

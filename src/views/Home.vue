@@ -66,7 +66,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .home {
     .hero {
-        background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+        background: linear-gradient(135deg, #FF6B6B 0%, #EE5A5A 100%);
         color: white;
         text-align: center;
         padding: 80px 20px;

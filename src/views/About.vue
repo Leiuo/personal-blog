@@ -8,7 +8,7 @@
         <div class="about-content">
             <div class="profile-section">
                 <div class="avatar">
-                    <img src="https://picsum.photos/200/200?random=100" alt="头像">
+                    <img :src="BASE_URL + 'images/avatar.jpg'" alt="头像">
                 </div>
                 <h2>博主简介</h2>
                 <p>前端开发者，热爱技术和写作，喜欢分享知识和经验。</p>
@@ -58,7 +58,7 @@
 </template>
 
 <script setup>
-// 页面逻辑可以在这里添加
+const BASE_URL = import.meta.env.BASE_URL || '/'
 </script>
 
 <style lang="scss" scoped>
