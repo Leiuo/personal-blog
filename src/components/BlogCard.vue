@@ -163,10 +163,9 @@ const goToCategory = (e) => {
     router.push(`/category/${props.post.category}`)
 }
 
-// 跳转到标签搜索
-const goToTag = (tag, e) => {
-    e.stopPropagation()
-    router.push(`/search?q=${tag}`)
+// 跳转到标签搜索（.stop 修饰符已阻止冒泡）
+const goToTag = (tag) => {
+    router.push(`/search?q=${encodeURIComponent(tag)}`)
 }
 </script>
 

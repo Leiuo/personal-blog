@@ -57,7 +57,7 @@ const mobileMenuOpen = ref(false)
 
 const handleSearch = () => {
     if (searchKeyword.value.trim()) {
-        router.push(`/search?q=${searchKeyword.value}`)
+        router.push(`/search?q=${encodeURIComponent(searchKeyword.value)}`)
         searchKeyword.value = ''
     }
 }
