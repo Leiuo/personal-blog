@@ -17,12 +17,22 @@
             </div>
 
             <button class="theme-toggle" @click="blogStore.toggleDarkMode" :title="blogStore.isDarkMode ? '切换到浅色模式' : '切换到深色模式'">
-                {{ blogStore.isDarkMode ? '🌙' : '☀️' }}
+                <svg v-if="blogStore.isDarkMode" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg v-else viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
             </button>
 
-            <div class="mobile-menu-btn" @click="toggleMobileMenu">
-                ☰
-            </div>
+            <button class="mobile-menu-btn" @click="toggleMobileMenu" aria-label="菜单">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M3 6h18"/>
+                    <path d="M3 12h18"/>
+                    <path d="M3 18h18"/>
+                </svg>
+            </button>
         </div>
 
         <!-- 移动端菜单 -->
@@ -140,25 +150,40 @@ const closeMobileMenu = () => {
         .theme-toggle {
             width: 40px;
             height: 40px;
-            border: none;
+            border: 1px solid var(--border-color);
             border-radius: 50%;
             background: var(--bg-secondary);
             color: var(--text-primary);
-            font-size: 18px;
             cursor: pointer;
-            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-left: 10px;
+            transition: border-color var(--transition-fast), background var(--transition-fast);
 
             &:hover {
-                transform: scale(1.1);
+                border-color: var(--accent-color);
+                background: var(--bg-primary);
             }
         }
 
         .mobile-menu-btn {
             display: none;
-            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: none;
             cursor: pointer;
             color: var(--text-primary);
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            border-radius: 8px;
+            transition: background var(--transition-fast);
+
+            &:hover {
+                background: var(--bg-primary);
+            }
         }
     }
 
@@ -192,7 +217,7 @@ const closeMobileMenu = () => {
         }
 
         .mobile-menu-btn {
-            display: block !important;
+            display: flex !important;
         }
 
         .mobile-menu {

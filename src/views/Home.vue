@@ -1,8 +1,20 @@
 <template>
     <div class="home">
         <div class="hero">
-            <h1>欢迎来到我的博客</h1>
-            <p>分享技术，记录生活，思考人生</p>
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <div class="hero-greeting">
+                        <span class="accent-bar"></span>
+                        <span>欢迎来到我的博客</span>
+                    </div>
+                    <p class="hero-subtitle">分享技术，记录生活，思考人生</p>
+                    <div class="hero-stats">
+                        <span class="stat"><strong>{{ postCount }}</strong> 篇文章</span>
+                        <span class="stat-sep">/</span>
+                        <span class="stat"><strong>{{ categoryCount }}</strong> 个分类</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="content">
@@ -49,7 +61,9 @@ import BlogCard from '@/components/BlogCard.vue'
 const router = useRouter()
 const blogStore = useBlogStore()
 
+const postCount = computed(() => blogStore.posts.length)
 const categories = computed(() => blogStore.getAllCategories)
+const categoryCount = computed(() => blogStore.getAllCategories.length)
 const hotPosts = computed(() =>
     [...blogStore.posts].sort((a, b) => (b.views || 0) - (a.views || 0)).slice(0, 5)
 )
@@ -66,19 +80,61 @@ onMounted(() => {
 <style lang="scss" scoped>
 .home {
     .hero {
-        background: linear-gradient(135deg, #FF6B6B 0%, #EE5A5A 100%);
-        color: white;
-        text-align: center;
-        padding: 80px 20px;
+        background: linear-gradient(160deg, var(--bg-secondary) 0%, var(--bg-primary) 50%);
 
-        h1 {
-            font-size: 48px;
-            margin: 0 0 20px 0;
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 72px 20px 56px;
         }
 
-        p {
-            font-size: 20px;
-            opacity: 0.9;
+        .hero-greeting {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+
+            span {
+                font-size: 36px;
+                font-weight: 700;
+                color: var(--text-primary);
+                letter-spacing: 1px;
+            }
+
+            .accent-bar {
+                display: block;
+                width: 4px;
+                height: 32px;
+                background: var(--accent-color);
+                border-radius: 2px;
+                flex-shrink: 0;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin: 0 0 28px 0;
+            padding-left: 20px;
+        }
+
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-left: 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+
+            strong {
+                color: var(--accent-color);
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            .stat-sep {
+                color: var(--border-color);
+            }
         }
     }
 
@@ -146,8 +202,18 @@ onMounted(() => {
             grid-template-columns: 1fr;
         }
 
-        .hero h1 {
-            font-size: 32px;
+        .hero {
+            .hero-inner {
+                padding: 48px 20px 40px;
+            }
+
+            .hero-greeting span {
+                font-size: 26px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
         }
     }
 }

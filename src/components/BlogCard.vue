@@ -4,7 +4,10 @@
         <div class="card-cover" v-if="post.cover">
             <img :src="coverUrl" :alt="post.title" loading="lazy">
             <div class="cover-overlay">
-                <span class="read-icon">📖</span>
+                <svg class="read-icon-svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
             </div>
         </div>
 
@@ -170,16 +173,17 @@ const goToTag = (tag, e) => {
 <style lang="scss" scoped>
 .blog-card {
     background: var(--bg-secondary);
+    border: 2px solid transparent;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow-light);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
     position: relative;
 
     &:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        border-color: var(--accent-color);
 
         .card-cover img {
             transform: scale(1.05);
@@ -190,8 +194,11 @@ const goToTag = (tag, e) => {
         }
 
         .read-more {
-            transform: translateX(5px);
             color: var(--accent-color);
+
+            .arrow-icon {
+                transform: translateX(4px);
+            }
         }
     }
 
@@ -215,17 +222,15 @@ const goToTag = (tag, e) => {
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.35);
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s ease;
 
-            .read-icon {
-                color: white;
-                font-size: 32px;
-                animation: pulse 1.5s ease infinite;
+            .read-icon-svg {
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
             }
         }
     }
@@ -359,27 +364,14 @@ const goToTag = (tag, e) => {
                 color: var(--text-muted);
                 font-size: 13px;
                 font-weight: 500;
-                transition: all 0.3s;
+                transition: color 0.3s;
 
                 .arrow-icon {
                     fill: currentColor;
-                    transition: transform 0.3s;
+                    transition: transform 0.3s ease;
                 }
             }
         }
-    }
-}
-
-// 动画定义
-@keyframes pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
     }
 }
 
