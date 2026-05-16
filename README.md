@@ -4,26 +4,26 @@
 
 ## ✨ 功能特性
 
-- 📝 **Markdown 文章支持** - 支持 Markdown 格式编写文章
-- 🔍 **文章搜索** - 支持按标题、摘要、标签搜索文章
-- 📁 **分类管理** - 文章分类展示
-- 📅 **归档页面** - 按时间归档文章
-- 📱 **响应式设计** - 支持桌面和移动设备
-- 🌙 **深色模式** - 支持明暗主题切换，自动检测系统偏好
-- 📖 **阅读体验** - 阅读进度条、回到顶部按钮
-- ⚡ **快速加载** - 使用 Vite 构建，加载速度快
+- **Markdown 文章** — 支持 Markdown 格式编写，代码语法高亮
+- **文章搜索** — 按标题、摘要、标签全文搜索
+- **分类管理** — 按分类筛选文章
+- **归档页面** — 按年份归档展示
+- **响应式设计** — 桌面端 + 移动端适配
+- **深色模式** — 明暗主题切换，自动跟随系统偏好
+- **阅读体验** — 阅读进度条 + 回到顶部按钮
+- **自动部署** — GitHub Actions 推送即部署到 GitHub Pages
 
-## 🛠️ 技术栈
+## 技术栈
 
 - **框架**: Vue 3 (Composition API)
-- **构建工具**: Vite 6
-- **路由**: Vue Router 4
+- **构建工具**: Vite + Rolldown
+- **路由**: Vue Router 4 (Hash 模式)
 - **状态管理**: Pinia
-- **样式**: SCSS + CSS 变量（支持深色模式）
-- **Markdown**: marked
-- **图标**: SVG Icons
+- **样式**: SCSS + CSS 变量（深色模式）
+- **Markdown**: marked + highlight.js
+- **图标**: 内联 SVG（Lucide 风格）
 
-## 🚀 快速开始
+## 快速开始
 
 ### 安装依赖
 
@@ -37,7 +37,7 @@ npm install
 npm run dev
 ```
 
-访问 http://localhost:3001/personal-blog/ 查看效果。
+访问 http://localhost:3001 查看效果。
 
 ### 构建生产版本
 
@@ -53,54 +53,45 @@ npm run build
 npm run preview
 ```
 
-## 📁 项目结构
+## 项目结构
 
 ```
 personal-blog/
-├── .github/                 # GitHub 配置
-│   └── workflows/           # CI/CD 工作流
-├── .vscode/                 # VS Code 配置
+├── .github/workflows/       # GitHub Actions 自动部署
 ├── public/                  # 静态资源
-│   ├── images/              # 图片资源
+│   ├── images/              # 文章封面 & 头像
 │   ├── posts/               # Markdown 文章
 │   │   ├── posts.json       # 文章元数据
 │   │   └── *.md             # 文章内容
-│   ├── favicon.svg          # 网站图标
-│   └── icons.svg            # 图标资源
-├── src/                     # 源代码
-│   ├── assets/              # 资源文件
-│   │   ├── styles/          # 样式文件
-│   │   └── images/          # 图片资源
-│   ├── components/          # Vue 组件
-│   │   ├── BlogCard.vue     # 文章卡片组件
-│   │   ├── Header.vue       # 头部导航组件
-│   │   ├── Footer.vue       # 底部组件
-│   │   ├── ScrollTop.vue    # 阅读进度条和回到顶部
-│   │   └── MarkdownEditor.vue # Markdown 编辑器
-│   ├── router/              # 路由配置
-│   │   └── index.js         # 路由定义
-│   ├── stores/              # Pinia 状态管理
-│   │   └── blog.js          # 博客数据状态（含主题管理）
-│   ├── utils/               # 工具函数
-│   │   ├── markdown.js      # Markdown 解析工具
-│   │   └── postLoader.js    # 文章加载工具
-│   ├── views/               # 页面视图
+│   ├── favicon.svg
+│   ├── icons.svg
+│   └── .nojekyll            # 禁用 GitHub Pages Jekyll 处理
+├── src/
+│   ├── assets/styles/       # 全局样式 & CSS 变量主题
+│   ├── components/          # 通用组件
+│   │   ├── BlogCard.vue     # 文章卡片
+│   │   ├── Header.vue       # 导航栏 + 搜索 + 主题切换
+│   │   ├── Footer.vue       # 页脚
+│   │   └── ScrollTop.vue    # 阅读进度条 + 回到顶部
+│   ├── router/index.js      # 路由配置
+│   ├── stores/blog.js       # Pinia 状态（文章 + 主题）
+│   ├── utils/markdown.js    # Markdown 解析
+│   ├── views/               # 页面
 │   │   ├── Home.vue         # 首页
-│   │   ├── BlogDetail.vue   # 文章详情页
-│   │   ├── Category.vue     # 分类页面
-│   │   ├── Archives.vue     # 归档页面
-│   │   ├── Search.vue        # 搜索页面
-│   │   └── About.vue        # 关于页面
-│   ├── App.vue              # 根组件
-│   ├── main.js              # 入口文件
-│   └── style.css            # 全局样式
-├── index.html               # HTML 模板
-├── package.json             # 项目依赖
-├── vite.config.js           # Vite 配置
-└── README.md                # 项目说明
+│   │   ├── BlogDetail.vue   # 文章详情
+│   │   ├── Category.vue     # 分类列表
+│   │   ├── Archives.vue     # 文章归档
+│   │   ├── Search.vue       # 搜索
+│   │   ├── About.vue        # 关于
+│   │   └── NotFound.vue     # 404
+│   ├── App.vue
+│   └── main.js
+├── index.html
+├── vite.config.js
+└── package.json
 ```
 
-## 📖 使用说明
+## 使用说明
 
 ### 添加新文章
 
@@ -112,37 +103,32 @@ personal-blog/
   "id": "article-id",
   "title": "文章标题",
   "category": "分类",
-  "date": "2024-01-01",
+  "date": "2026-05-01",
   "tags": ["标签1", "标签2"],
   "excerpt": "文章摘要",
-  "cover": "封面图片URL",
+  "cover": "images/cover.jpg",
   "filename": "article-id.md"
 }
 ```
 
 ### Markdown 文章格式
 
-文章支持标准 Markdown 语法，同时支持 Frontmatter：
+文章使用标准 Markdown 语法，元数据在 `posts.json` 中管理，文章文件只写正文即可。
 
 ```markdown
----
-title: 文章标题
-date: 2024-01-01
-category: 技术
-tags: [Vue, JavaScript]
-cover: https://example.com/cover.jpg
----
+## 章节标题
 
-文章内容...
+文章正文内容，支持 `代码`、**加粗**、*斜体* 等标准语法。
+
+​```js
+// 代码块自动语法高亮
+console.log('hello')
+​```
 ```
 
-### 深色模式
+> 提示：文章封面图放到 `public/images/`，在 `posts.json` 中用相对路径引用，如 `"cover": "images/my-cover.jpg"`。
 
-- 主题状态自动保存到浏览器 `localStorage`
-- 支持手动切换（点击导航栏中的 ☀️/🌙 图标）
-- 自动检测系统深色模式偏好
-
-## 🌐 路由结构
+## 路由结构
 
 | 路由 | 页面 | 描述 |
 |------|------|------|
@@ -152,10 +138,11 @@ cover: https://example.com/cover.jpg
 | `/archives` | Archives | 文章归档 |
 | `/search` | Search | 搜索页面 |
 | `/about` | About | 关于页面 |
+| `/:pathMatch(.*)*` | NotFound | 404 页面 |
 
-## 🎨 主题定制
+## 主题定制
 
-项目使用 CSS 变量进行主题管理，主要变量定义在 `src/assets/styles/main.css`：
+项目使用 CSS 变量管理主题，定义在 `src/assets/styles/main.css`。修改 `--accent-color` 即可换主色：
 
 ```css
 :root {
@@ -163,8 +150,11 @@ cover: https://example.com/cover.jpg
     --bg-secondary: #ffffff;
     --text-primary: #333333;
     --text-secondary: #666666;
-    --accent-color: #4CAF50;
+    --text-muted: #999999;
+    --accent-color: #FF6B6B;
+    --accent-hover: #EE5A5A;
     --border-color: #e0e0e0;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .dark {
@@ -172,18 +162,35 @@ cover: https://example.com/cover.jpg
     --bg-secondary: #16213e;
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
-    --accent-color: #4CAF50;
+    --text-muted: #808080;
+    --accent-color: #FF6B6B;
+    --accent-hover: #EE5A5A;
     --border-color: #333333;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 ```
 
-## 🚢 部署
+- 主题偏好自动保存到 `localStorage`
+- 手动切换点击导航栏右侧按钮
+- 首次访问自动跟随系统 `prefers-color-scheme`
 
-项目已配置 GitHub Actions 自动部署。推送代码到 `main` 分支后，会自动构建并部署到 GitHub Pages。
+## 部署
+
+推送 `main` 分支自动触发 GitHub Actions 构建并部署到 GitHub Pages。
+
+### 前置条件
+
+1. 仓库 Settings → Pages → Source 选 **"GitHub Actions"**
+2. 仓库 Settings → Actions → General → 选 **"Allow all actions"**
+3. `public/` 目录下必须有 `.nojekyll` 文件（已包含）
+
+不添加 `.nojekyll` 会导致 GitHub 的 Jekyll 引擎忽略 `_` 开头的文件（如 Vite 生成的 `_plugin-vue_export-helper-*.js`），造成部署后页面白屏。
 
 ### 手动部署
 
 ```bash
 npm run build
-# 将 dist 目录部署到静态站点托管服务
+# 将 dist/ 上传到任意静态托管服务（Vercel、Netlify、Cloudflare Pages 等）
 ```
+
+Vite 配置中 `base` 需与部署路径一致。当前为 `/personal-blog/`，部署到其他服务时按需修改 `vite.config.js`。
