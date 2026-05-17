@@ -62,13 +62,14 @@ onMounted(() => {
         margin-bottom: 50px;
 
         h1 {
-            font-size: 36px;
-            color: var(--text-primary);
+            font-size: 30px;
+            color: var(--accent-color);
             margin-bottom: 10px;
 
             &::before {
                 content: '#';
                 color: var(--accent-color);
+                opacity: 0.5;
                 margin-right: 5px;
             }
         }

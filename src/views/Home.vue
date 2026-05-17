@@ -95,9 +95,9 @@ onMounted(() => {
             margin-bottom: 16px;
 
             span {
-                font-size: 36px;
+                font-size: 32px;
                 font-weight: 700;
-                color: var(--text-primary);
+                color: var(--accent-color);
                 letter-spacing: 1px;
             }
 
@@ -208,7 +208,7 @@ onMounted(() => {
             }
 
             .hero-greeting span {
-                font-size: 26px;
+                font-size: 24px;
             }
 
             .hero-subtitle {

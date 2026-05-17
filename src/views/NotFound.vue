@@ -15,7 +15,7 @@
     padding: 120px 20px;
 
     h1 {
-        font-size: 80px;
+        font-size: 64px;
         font-weight: 700;
         color: var(--accent-color);
         margin: 0 0 12px 0;

@@ -75,8 +75,8 @@ const BASE_URL = import.meta.env.BASE_URL || '/'
         margin-bottom: 50px;
 
         h1 {
-            font-size: 36px;
-            color: var(--text-primary);
+            font-size: 30px;
+            color: var(--accent-color);
             margin-bottom: 10px;
         }
 

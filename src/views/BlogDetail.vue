@@ -145,9 +145,9 @@ onMounted(() => {
             padding-bottom: 20px;
 
             h1 {
-                font-size: 36px;
+                font-size: 32px;
                 margin: 0 0 20px 0;
-                color: var(--text-primary);
+                color: var(--accent-color);
             }
 
             .post-meta {
