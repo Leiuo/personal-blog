@@ -26,6 +26,7 @@
                 </svg>
             </button>
 
+            <!-- 移动端菜单按钮 -->
             <button class="mobile-menu-btn" @click="toggleMobileMenu" aria-label="菜单">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                     <path d="M3 6h18"/>
@@ -53,11 +54,11 @@ const router = useRouter()
 const blogStore = useBlogStore()
 const blogTitle = ref('个人博客')
 const searchKeyword = ref('')
-const mobileMenuOpen = ref(false)
+const mobileMenuOpen = ref(false)  // 移动端菜单状态
 
 const handleSearch = () => {
     if (searchKeyword.value.trim()) {
-        router.push(`/search?q=${encodeURIComponent(searchKeyword.value)}`)
+        router.push(`/search?q=${encodeURIComponent(searchKeyword.value)}`)  // 跳转到搜索结果页
         searchKeyword.value = ''
     }
 }
@@ -78,7 +79,7 @@ const closeMobileMenu = () => {
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
+    transition: background-color var(--transition-normal), box-shadow var(--transition-normal);  // 平滑过渡背景色和阴影
 
     .header-container {
         max-width: 1200px;
@@ -94,7 +95,7 @@ const closeMobileMenu = () => {
 
             h1 {
                 font-size: 24px;
-                color: var(--accent-color);
+                color: var(--accent-color);  // 使用强调色作为标题颜色
                 margin: 0;
             }
         }
@@ -105,13 +106,13 @@ const closeMobileMenu = () => {
 
             .nav-link {
                 text-decoration: none;
-                color: var(--text-primary);
+                color: var(--text-primary);  // 使用文本主色作为导航链接颜色
                 font-weight: 500;
-                transition: color var(--transition-fast);
+                transition: color var(--transition-fast);  // 平滑过渡颜色
 
                 &:hover,
                 &.router-link-active {
-                    color: var(--accent-color);
+                    color: var(--accent-color);  // 使用强调色作为悬停和激活状态的颜色
                 }
             }
         }
@@ -122,27 +123,27 @@ const closeMobileMenu = () => {
 
             input {
                 padding: 8px 12px;
-                border: 1px solid var(--border-color);
-                border-radius: 4px;
+                border: 1px solid var(--border-color);  // 使用边框颜色变量
+                border-radius: 6px;
                 outline: none;
-                background: var(--bg-secondary);
-                color: var(--text-primary);
+                background: var(--bg-secondary);  // 使用背景次级色作为输入框背景
+                color: var(--text-primary);  // 使用文本主色作为输入框文字颜色
 
                 &:focus {
-                    border-color: var(--accent-color);
+                    border-color: var(--accent-color);  // 使用强调色作为输入框聚焦时的边框颜色
                 }
             }
 
             button {
                 padding: 8px 16px;
-                background: var(--accent-color);
+                background: var(--accent-color);  // 使用强调色作为按钮背景
                 color: white;
                 border: none;
-                border-radius: 4px;
+                border-radius: 6px;
                 cursor: pointer;
 
                 &:hover {
-                    background: var(--accent-hover);
+                    background: var(--accent-hover);  // 使用强调色悬停状态的颜色作为按钮悬停时的背景
                 }
             }
         }
@@ -150,20 +151,20 @@ const closeMobileMenu = () => {
         .theme-toggle {
             width: 40px;
             height: 40px;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-color);  // 使用边框颜色变量
             border-radius: 50%;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
+            background: var(--bg-secondary);  // 使用背景次级色作为主题切换按钮背景
+            color: var(--text-primary);  // 使用文本主色作为主题切换按钮图标颜色
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-left: 10px;
-            transition: border-color var(--transition-fast), background var(--transition-fast);
+            transition: border-color var(--transition-fast), background var(--transition-fast);  // 平滑过渡边框颜色和背景色
 
             &:hover {
-                border-color: var(--accent-color);
-                background: var(--bg-primary);
+                border-color: var(--accent-color);  // 使用强调色作为主题切换按钮悬停时的边框颜色
+                background: var(--bg-primary);  // 使用背景主色作为主题切换按钮悬停时的背景颜色
             }
         }
 
@@ -174,15 +175,15 @@ const closeMobileMenu = () => {
             border: none;
             background: none;
             cursor: pointer;
-            color: var(--text-primary);
+            color: var(--text-primary);  // 使用文本主色作为移动菜单按钮图标颜色
             align-items: center;
             justify-content: center;
             padding: 0;
             border-radius: 8px;
-            transition: background var(--transition-fast);
+            transition: background var(--transition-fast);  // 平滑过渡背景色
 
             &:hover {
-                background: var(--bg-primary);
+                background: var(--bg-primary);  // 使用背景主色作为移动菜单按钮悬停时的背景颜色
             }
         }
     }
@@ -190,24 +191,25 @@ const closeMobileMenu = () => {
     .mobile-menu {
         display: none;
         flex-direction: column;
-        background: var(--bg-secondary);
+        background: var(--bg-secondary);  // 使用背景次级色作为移动菜单背景
         padding: 20px;
         gap: 15px;
-        border-top: 1px solid var(--border-color);
-        transition: background-color var(--transition-normal);
+        border-top: 1px solid var(--border-color);  // 使用边框颜色变量作为移动菜单顶部边框颜色
+        transition: background-color var(--transition-normal);  // 平滑过渡背景色
 
         a {
             text-decoration: none;
-            color: var(--text-primary);
+            color: var(--text-primary);  // 使用文本主色作为移动菜单链接颜色
             padding: 10px;
-            transition: color var(--transition-fast);
+            transition: color var(--transition-fast);  // 平滑过渡颜色
 
             &:hover {
-                color: var(--accent-color);
+                color: var(--accent-color);  // 使用强调色作为移动菜单链接悬停时的颜色
             }
         }
     }
 
+    // 响应式设计：在小屏幕上隐藏导航和搜索，显示移动菜单按钮
     @media (max-width: 768px) {
 
         .nav,
