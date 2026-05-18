@@ -29,7 +29,7 @@
     {
         "id": "japan-travel",
         "title": "日本旅行日记：京都的秋天",
-        "date": "2026-05-04",
+        "date": "2026-05-11",
         "category": "旅行",
         "tags": [
             "旅行",
@@ -39,5 +39,33 @@
         "excerpt": "分享在日本京都的旅行经历，感受古都的秋天之美",
         "cover": "images/cover-japan.jpg",
         "filename": "japan-travel.md"
+    },
+    {
+        "id": "github-pages",
+        "title": "使用 GitHub Pages 部署你的静态网站",
+        "date": "2026-05-16",
+        "category": "技术",
+        "tags": [
+            "GitHub",
+            "部署",
+            "静态网站"
+        ],
+        "excerpt": "详细介绍如何使用 GitHub Pages 部署你的静态网站",
+        "cover": "images/cover-github-pages.jpg",
+        "filename": "github-pages.md"
+    },
+    {
+        "id": "claude-code-install",
+        "title": "Claude Code 安装和使用",
+        "date": "2026-05-18",
+        "category": "技术",
+        "tags": [
+            "AI工具",
+            "Web开发",
+            "前端"
+        ],
+        "excerpt": "详细介绍Claude Code的安装和使用方法",
+        "cover": "images/cover-claude-code.jpg",
+        "filename": "claude-code-install.md"
     }
 ]
