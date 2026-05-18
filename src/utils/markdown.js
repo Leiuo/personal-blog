@@ -23,16 +23,20 @@ marked.setOptions({
 // 自定义渲染器
 const renderer = new marked.Renderer()
 
-renderer.link = (href, title, text) => {
+renderer.link = ({ href, title, text }) => {
     const isExternal = href.startsWith('http')
     const target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''
     const titleAttr = title ? ` title="${title}"` : ''
     return `<a href="${href}"${target}${titleAttr}>${text}</a>`
 }
 
-renderer.image = (href, title, text) => {
+renderer.image = ({ href, title, text }) => {
     const titleAttr = title ? ` title="${title}"` : ''
-    return `<img src="${href}" alt="${text}"${titleAttr} class="markdown-image" loading="lazy">`
+    let url = href
+    if (!href.startsWith('http://') && !href.startsWith('https://')) {
+        url = import.meta.env.BASE_URL + href.replace(/^\.\.\//g, '')
+    }
+    return `<img src="${url}" alt="${text}"${titleAttr} class="markdown-image" loading="lazy">`
 }
 
 marked.use({ renderer })
@@ -41,7 +45,12 @@ marked.use({ renderer })
 export const parseMarkdown = (markdown) => {
     if (!markdown) return ''
     try {
-        return marked.parse(markdown)
+        let html = marked.parse(markdown)
+        // 修正原始 <img> 标签的相对路径（绕过 renderer 的裸 img 标签）
+        html = html.replace(/src="(\.\.\/[^"]+)"/g, (_, path) =>
+            `src="${import.meta.env.BASE_URL + path.replace(/^\.\.\//g, '')}"`
+        )
+        return html
     } catch (error) {
         console.error('Markdown 解析错误:', error)
         return '<p>文章解析错误</p>'
