@@ -13,7 +13,7 @@ cover: https://picsum.photos/id/104/400/200
 
 京都的秋天是最美的季节，红叶似火，古寺幽静，漫步在街头巷尾，仿佛穿越回了古代日本。
 
-<img src="../images/京都红叶.jpg" width="600px" style="display: block; margin: auto">
+<img src="../images/京都红叶.jpg" width="700">
 
 ## 岚山竹林
 
@@ -21,23 +21,26 @@ cover: https://picsum.photos/id/104/400/200
 
 > 走在竹林小径中，仿佛进入了一个神秘的世界，阳光透过竹叶洒下斑驳的光影。
 
-<img src="../images/岚山竹林.jpg" width="600px" style="display: block; margin: auto">
+<img src="../images/岚山竹林.jpg" width="700">
 
 ## 清水寺
 
 清水寺是京都最古老的寺院之一，站在清水舞台上，可以俯瞰整个京都市区。
 
-<img src="../images/清水寺.jpg" width="600px" style="display: block; margin: auto">
+<img src="../images/清水寺.jpg" width="700">
 
 ## 美食推荐
 
-- 京都豆腐料理
-<img src="../images/京都豆腐料理.jpg" width="300px">
+**京都豆腐料理** — 细腻滑嫩，入口即化，是京都最具代表性的传统美食。
 
-- 抹茶甜点
-<img src="../images/抹茶甜点.jpg" width="300px">
+<img src="../images/京都豆腐料理.jpg" width="500">
 
-- 怀石料理
-<img src="../images/怀石料理.jpg" width="300px">
+**抹茶甜点** — 京都的抹茶文化深厚，各类抹茶甜点精致可口。
+
+<img src="../images/抹茶甜点.jpg" width="500">
+
+**怀石料理** — 注重季节感和摆盘艺术的精致日式料理。
+
+<img src="../images/怀石料理.jpg" width="500">
 
 京都的美食文化同样令人印象深刻。

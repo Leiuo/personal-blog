@@ -263,9 +263,12 @@ onMounted(() => {
     }
 
     img {
+        display: block;
         max-width: 100%;
-        border-radius: 8px;
-        margin: 20px 0;
+        height: auto;
+        border-radius: 12px;
+        margin: 32px auto;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
 
     ul,
