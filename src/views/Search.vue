@@ -6,8 +6,8 @@
         </div>
 
         <div class="search-results" v-if="!loading">
-            <div v-if="searchResults.length > 0">
-                <BlogCard v-for="post in searchResults" :key="post.id" :post="post" />
+            <div v-if="searchResults.length > 0" class="results-list">
+                <BlogCard v-for="post in searchResults" :key="post.id" :post="post" class="list-item" />
             </div>
             <div v-else class="empty-state">
                 <p>没有找到相关文章</p>
@@ -68,6 +68,20 @@ watch(keyword, () => {
     }
 
     .search-results {
+        .results-list {
+            // display: grid;
+            // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            // gap: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            .list-item {
+                margin-bottom: 20px;
+                width: 800px;
+            }
+        }
+
         .empty-state {
             text-align: center;
             padding: 80px 20px;
