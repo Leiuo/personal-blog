@@ -95,7 +95,7 @@ const closeMobileMenu = () => {
 
             h1 {
                 font-size: 24px;
-                color: var(--accent-color);  // 使用强调色作为标题颜色
+                color: var(--accent-color);
                 margin: 0;
             }
         }

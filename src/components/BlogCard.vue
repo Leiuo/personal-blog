@@ -107,16 +107,16 @@ const coverUrl = computed(() => {
 // 分类颜色映射
 const categoryColor = computed(() => {
     const colors = {
-        '技术': '#FF6B6B',
-        '生活': '#FF9800',
-        '随笔': '#9C27B0',
-        '旅行': '#2196F3',
-        '前端': '#E91E63',
-        '后端': '#00BCD4',
-        '人工智能': '#3F51B5',
-        '读书笔记': '#795548'
+        '技术': '#10B981',
+        '前端': '#34D399',
+        '后端': '#14B8A6',
+        '人工智能': '#6366F1',
+        '生活': '#F59E0B',
+        '随笔': '#EC4899',
+        '旅行': '#3B82F6',
+        '读书笔记': '#4B5563'
     }
-    return colors[props.post.category] || '#607D8B'
+    return colors[props.post.category] || '#6B7280'
 })
 
 // 格式化日期
@@ -172,16 +172,16 @@ const goToTag = (tag) => {
 <style lang="scss" scoped>
 .blog-card {
     background: var(--bg-secondary);
-    border: 2px solid transparent;
-    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-light);
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
     cursor: pointer;
     position: relative;
 
     &:hover {
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        box-shadow: var(--shadow-card-hover);
         border-color: var(--accent-color);
 
         .card-cover img {

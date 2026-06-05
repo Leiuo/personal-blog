@@ -3,8 +3,10 @@
     <div class="progress-bar" :style="{ width: progress + '%' }"></div>
     
     <!-- 回到顶部按钮 -->
-    <button class="back-to-top" :class="{ show: showButton }" @click="scrollToTop">
-        ↑
+    <button class="back-to-top" :class="{ show: showButton }" @click="scrollToTop" aria-label="回到顶部">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
     </button>
 </template>
 
