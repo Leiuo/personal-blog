@@ -67,5 +67,20 @@
         "excerpt": "详细介绍Claude Code的安装和使用方法",
         "cover": "images/cover-claude-code.jpg",
         "filename": "claude-code-install.md"
+    },
+    {
+        "id": "library-admin",
+        "title": "现代化图书馆后台管理系统",
+        "date": "2026-06-05",
+        "category": "技术",
+        "tags": [
+            "后台管理系统",
+            "Web开发",
+            "前端",
+            "Vue"
+        ],
+        "excerpt": "一个基于 Vue 3 + Element Plus 构建的现代化图书馆后台管理系统",
+        "cover": "images/cover-library.jpg",
+        "filename": "library-admin.md"
     }
 ]
