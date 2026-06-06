@@ -8,6 +8,7 @@
             <nav class="nav">
                 <router-link to="/" class="nav-link">首页</router-link>
                 <router-link to="/archives" class="nav-link">归档</router-link>
+                <router-link to="/write" class="nav-link">写作</router-link>
                 <router-link to="/about" class="nav-link">关于</router-link>
             </nav>
 
@@ -40,6 +41,7 @@
         <div class="mobile-menu" v-show="mobileMenuOpen">
             <router-link to="/" @click="closeMobileMenu">首页</router-link>
             <router-link to="/archives" @click="closeMobileMenu">归档</router-link>
+            <router-link to="/write" @click="closeMobileMenu">写作</router-link>
             <router-link to="/about" @click="closeMobileMenu">关于</router-link>
             <div class="mobile-search">
                 <input type="text" v-model="searchKeyword" @keyup.enter="handleSearch" placeholder="搜索文章...">

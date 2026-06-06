@@ -2,17 +2,41 @@ import { marked } from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/github-dark.css'
 
+// 代码高亮缓存，避免重复高亮相同代码块
+const MAX_CACHE_SIZE = 200
+const highlightCache = new Map()
+
+function cachedHighlight(code, lang) {
+    const cacheKey = lang ? `${lang}:${code}` : `auto:${code}`
+
+    if (highlightCache.has(cacheKey)) {
+        return highlightCache.get(cacheKey)
+    }
+
+    let result
+    if (lang && hljs.getLanguage(lang)) {
+        try {
+            result = hljs.highlight(code, { language: lang }).value
+        } catch (err) {
+            console.error(err)
+            result = hljs.highlightAuto(code).value
+        }
+    } else {
+        result = hljs.highlightAuto(code).value
+    }
+
+    if (highlightCache.size >= MAX_CACHE_SIZE) {
+        const firstKey = highlightCache.keys().next().value
+        highlightCache.delete(firstKey)
+    }
+    highlightCache.set(cacheKey, result)
+    return result
+}
+
 // 配置 marked
 marked.setOptions({
     highlight: function (code, lang) {
-        if (lang && hljs.getLanguage(lang)) {
-            try {
-                return hljs.highlight(code, { language: lang }).value
-            } catch (err) {
-                console.error(err)
-            }
-        }
-        return hljs.highlightAuto(code).value
+        return cachedHighlight(code, lang)
     },
     breaks: true,
     gfm: true,

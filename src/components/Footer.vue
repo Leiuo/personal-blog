@@ -19,8 +19,8 @@
                 <h4>关注我</h4>
                 <div class="social-links">
                     <a href="https://github.com/Leiuo">GitHub</a>
-                    <a href="https://mail.qq.com">QQ邮箱</a>
-                    <a href="https://www.zhihu.com/">知乎</a>
+                    <a href="https://wx.mail.qq.com/home/index>QQ邮箱</a>
+                    <a href="https://www.zhihu.com/people/meng-shen-xiao-xue-sheng-90">知乎</a>
                 </div>
             </div>
         </div>

@@ -27,6 +27,11 @@ const routes = [
         component: () => import('@/views/Archives.vue')
     },
     {
+        path: '/write',
+        name: 'Write',
+        component: () => import('@/views/Write.vue')
+    },
+    {
         path: '/search',
         name: 'Search',
         component: () => import('@/views/Search.vue')
