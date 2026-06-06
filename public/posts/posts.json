@@ -1,72 +1,18 @@
 [
     {
-        "id": "vue3-guide",
-        "title": "Vue 3 组合式API完全指南",
-        "date": "2026-05-05",
+        "id": "personal blog",
+        "title": "个人博客系统",
+        "date": "2026-06-06",
         "category": "技术",
         "tags": [
-            "Vue",
-            "JavaScript",
-            "前端"
-        ],
-        "excerpt": "深入学习Vue 3的组合式API，掌握响应式编程的精髓",
-        "cover": "images/cover-vue.jpg",
-        "filename": "vue3-guide.md"
-    },
-    {
-        "id": "web-best-practices",
-        "title": "探索现代Web开发的最佳实践",
-        "date": "2026-05-10",
-        "category": "技术",
-        "tags": [
+            "博客",
             "Web开发",
-            "工程化"
+            "前端",
+            "Vue"
         ],
-        "excerpt": "从开发工具到部署流程，全面了解现代Web开发的最佳实践",
-        "cover": "images/cover-web.jpg",
-        "filename": "web-best-practices.md"
-    },
-    {
-        "id": "japan-travel",
-        "title": "日本旅行日记：京都的秋天",
-        "date": "2026-05-11",
-        "category": "旅行",
-        "tags": [
-            "旅行",
-            "日本",
-            "摄影"
-        ],
-        "excerpt": "分享在日本京都的旅行经历，感受古都的秋天之美",
-        "cover": "images/cover-japan.jpg",
-        "filename": "japan-travel.md"
-    },
-    {
-        "id": "github-pages",
-        "title": "使用 GitHub Pages 部署你的静态网站",
-        "date": "2026-05-16",
-        "category": "技术",
-        "tags": [
-            "GitHub",
-            "部署",
-            "静态网站"
-        ],
-        "excerpt": "详细介绍如何使用 GitHub Pages 部署你的静态网站",
-        "cover": "images/cover-github-pages.jpg",
-        "filename": "github-pages.md"
-    },
-    {
-        "id": "claude-code-install",
-        "title": "Claude Code 安装和使用",
-        "date": "2026-05-18",
-        "category": "技术",
-        "tags": [
-            "AI工具",
-            "Web开发",
-            "前端"
-        ],
-        "excerpt": "详细介绍Claude Code的安装和使用方法",
-        "cover": "images/cover-claude-code.jpg",
-        "filename": "claude-code-install.md"
+        "excerpt": "简要介绍一个基于 Vue 3 的现代化个人博客系统",
+        "cover": "images/cover-personal-blog.jpg",
+        "filename": "personal-blog.md"
     },
     {
         "id": "library-admin",
@@ -84,18 +30,72 @@
         "filename": "library-admin.md"
     },
     {
-        "id": "personal blog",
-        "title": "个人博客系统",
-        "date": "2026-06-06",
+        "id": "claude-code-install",
+        "title": "Claude Code 安装和使用",
+        "date": "2026-05-18",
         "category": "技术",
         "tags": [
-            "博客",
+            "AI工具",
             "Web开发",
-            "前端",
-            "Vue"
+            "前端"
         ],
-        "excerpt": "简要介绍一个基于 Vue 3 的现代化个人博客系统",
-        "cover": "images/cover-personal-blog.jpg",
-        "filename": "personal-blog.md"
+        "excerpt": "详细介绍Claude Code的安装和使用方法",
+        "cover": "images/cover-claude-code.jpg",
+        "filename": "claude-code-install.md"
+    },
+    {
+        "id": "github-pages",
+        "title": "使用 GitHub Pages 部署你的静态网站",
+        "date": "2026-05-16",
+        "category": "技术",
+        "tags": [
+            "GitHub",
+            "部署",
+            "静态网站"
+        ],
+        "excerpt": "详细介绍如何使用 GitHub Pages 部署你的静态网站",
+        "cover": "images/cover-github-pages.jpg",
+        "filename": "github-pages.md"
+    },
+    {
+        "id": "japan-travel",
+        "title": "日本旅行日记：京都的秋天",
+        "date": "2026-05-11",
+        "category": "旅行",
+        "tags": [
+            "旅行",
+            "日本",
+            "摄影"
+        ],
+        "excerpt": "分享在日本京都的旅行经历，感受古都的秋天之美",
+        "cover": "images/cover-japan.jpg",
+        "filename": "japan-travel.md"
+    },
+    {
+        "id": "web-best-practices",
+        "title": "探索现代Web开发的最佳实践",
+        "date": "2026-05-10",
+        "category": "技术",
+        "tags": [
+            "Web开发",
+            "工程化"
+        ],
+        "excerpt": "从开发工具到部署流程，全面了解现代Web开发的最佳实践",
+        "cover": "images/cover-web.jpg",
+        "filename": "web-best-practices.md"
+    },
+    {
+        "id": "vue3-guide",
+        "title": "Vue 3 组合式API完全指南",
+        "date": "2026-05-05",
+        "category": "技术",
+        "tags": [
+            "Vue",
+            "JavaScript",
+            "前端"
+        ],
+        "excerpt": "深入学习Vue 3的组合式API，掌握响应式编程的精髓",
+        "cover": "images/cover-vue.jpg",
+        "filename": "vue3-guide.md"
     }
 ]
