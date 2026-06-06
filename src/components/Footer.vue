@@ -26,12 +26,13 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 个人博客. All rights reserved.</p>
+            <p>&copy; {{ currentYear }} 个人博客. All rights reserved.</p>
         </div>
     </footer>
 </template>
 
 <script setup>
+const currentYear = new Date().getFullYear()
 </script>
 
 <style lang="scss" scoped>
