@@ -104,19 +104,17 @@ const coverUrl = computed(() => {
     return BASE_URL + cover
 })
 
-// 分类颜色映射
+// 基于分类名哈希生成稳定的 HSL 颜色，任意分类无需手动配置
 const categoryColor = computed(() => {
-    const colors = {
-        '技术': '#10B981',
-        '前端': '#34D399',
-        '后端': '#14B8A6',
-        '人工智能': '#6366F1',
-        '生活': '#F59E0B',
-        '随笔': '#EC4899',
-        '旅行': '#3B82F6',
-        '读书笔记': '#4B5563'
+    const name = props.post.category || ''
+    // djb2 哈希 → 色相 0-360，同一分类名始终得到相同颜色
+    let hash = 5381
+    for (let i = 0; i < name.length; i++) {
+        hash = ((hash << 5) + hash) + name.charCodeAt(i)
+        hash = hash & hash // 转为 32 位
     }
-    return colors[props.post.category] || '#6B7280'
+    const hue = Math.abs(hash) % 360
+    return `hsl(${hue}, 55%, 45%)`
 })
 
 // 格式化日期
