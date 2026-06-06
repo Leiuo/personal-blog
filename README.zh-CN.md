@@ -7,12 +7,13 @@
 ## 功能特性
 
 - **Markdown 文章** — 支持 Markdown 格式编写，代码语法高亮
+- **文章写作** — 内置 Markdown 编辑器，支持快捷键和实时预览
 - **文章搜索** — 按标题、摘要、标签全文搜索
 - **分类管理** — 按分类筛选文章
 - **归档页面** — 按年份归档展示
 - **响应式设计** — 桌面端 + 移动端适配
 - **深色模式** — 明暗主题切换，自动跟随系统偏好
-- **阅读体验** — 阅读进度条 + 回到顶部按钮
+- **阅读体验** — 阅读进度条 + 回到顶部按钮 + 文章目录 + 上下篇导航
 - **自动部署** — GitHub Actions 推送即部署到 GitHub Pages
 
 ## 技术栈
@@ -22,7 +23,7 @@
 - **路由**: Vue Router 4 (Hash 模式)
 - **状态管理**: Pinia
 - **样式**: SCSS + CSS 变量（深色模式）
-- **Markdown**: marked + highlight.js
+- **Markdown**: marked + highlight.js + gray-matter
 - **图标**: 内联 SVG（Lucide 风格）
 
 ## 快速开始
@@ -74,7 +75,8 @@ personal-blog/
 │   │   ├── BlogCard.vue     # 文章卡片
 │   │   ├── Header.vue       # 导航栏 + 搜索 + 主题切换
 │   │   ├── Footer.vue       # 页脚
-│   │   └── ScrollTop.vue    # 阅读进度条 + 回到顶部
+│   │   ├── ScrollTop.vue    # 阅读进度条 + 回到顶部
+│   │   └── MarkdownEditor.vue # Markdown 编辑器
 │   ├── router/index.js      # 路由配置
 │   ├── stores/blog.js       # Pinia 状态（文章 + 主题）
 │   ├── utils/markdown.js    # Markdown 解析
@@ -84,6 +86,7 @@ personal-blog/
 │   │   ├── Category.vue     # 分类列表
 │   │   ├── Archives.vue     # 文章归档
 │   │   ├── Search.vue       # 搜索
+│   │   ├── Write.vue        # 写作页面
 │   │   ├── About.vue        # 关于
 │   │   └── NotFound.vue     # 404
 │   ├── App.vue
@@ -138,6 +141,7 @@ console.log('hello')
 | `/blog/:id` | BlogDetail | 文章详情页 |
 | `/category/:name` | Category | 分类文章列表 |
 | `/archives` | Archives | 文章归档 |
+| `/write` | Write | 写作页面 |
 | `/search` | Search | 搜索页面 |
 | `/about` | About | 关于页面 |
 | `/:pathMatch(.*)*` | NotFound | 404 页面 |
@@ -153,8 +157,8 @@ console.log('hello')
     --text-primary: #333333;
     --text-secondary: #666666;
     --text-muted: #999999;
-    --accent-color: #FF6B6B;
-    --accent-hover: #EE5A5A;
+    --accent-color: #10B981;
+    --accent-hover: #059669;
     --border-color: #e0e0e0;
     --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -165,8 +169,8 @@ console.log('hello')
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
     --text-muted: #808080;
-    --accent-color: #FF6B6B;
-    --accent-hover: #EE5A5A;
+    --accent-color: #34D399;
+    --accent-hover: #10B981;
     --border-color: #333333;
     --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.3);
 }

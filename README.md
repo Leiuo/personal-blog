@@ -7,12 +7,13 @@ A modern personal blog system built with Vue 3.
 ## Features
 
 - **Markdown Articles** — Write in Markdown format with syntax-highlighted code blocks
+- **Article Writing** — Built-in Markdown editor with hotkeys and live preview
 - **Article Search** — Full-text search by title, excerpt, and tags
 - **Category Management** — Filter articles by category
 - **Archives Page** — Year-based archive display
 - **Responsive Design** — Desktop + Mobile adaptive layout
 - **Dark Mode** — Light/dark theme toggle, auto-follows system preference
-- **Reading Experience** — Reading progress bar + Back-to-top button
+- **Reading Experience** — Reading progress bar + Back-to-top button + Table of Contents + Prev/Next navigation
 - **Auto Deploy** — Push-to-deploy via GitHub Actions to GitHub Pages
 
 ## Tech Stack
@@ -22,7 +23,7 @@ A modern personal blog system built with Vue 3.
 - **Routing**: Vue Router 4 (Hash Mode)
 - **State Management**: Pinia
 - **Styling**: SCSS + CSS Variables (Dark Mode)
-- **Markdown**: marked + highlight.js
+- **Markdown**: marked + highlight.js + gray-matter
 - **Icons**: Inline SVG (Lucide-style)
 
 ## Quick Start
@@ -74,7 +75,8 @@ personal-blog/
 │   │   ├── BlogCard.vue     # Article card
 │   │   ├── Header.vue       # Navbar + Search + Theme toggle
 │   │   ├── Footer.vue       # Footer
-│   │   └── ScrollTop.vue    # Reading progress + Back to top
+│   │   ├── ScrollTop.vue    # Reading progress + Back to top
+│   │   └── MarkdownEditor.vue # Markdown editor
 │   ├── router/index.js      # Route configuration
 │   ├── stores/blog.js       # Pinia store (articles + theme)
 │   ├── utils/markdown.js    # Markdown parser
@@ -84,6 +86,7 @@ personal-blog/
 │   │   ├── Category.vue     # Category list
 │   │   ├── Archives.vue     # Article archives
 │   │   ├── Search.vue       # Search
+│   │   ├── Write.vue        # Write article
 │   │   ├── About.vue        # About
 │   │   └── NotFound.vue     # 404
 │   ├── App.vue
@@ -138,6 +141,7 @@ console.log('hello')
 | `/blog/:id` | BlogDetail | Article detail page |
 | `/category/:name` | Category | Category article list |
 | `/archives` | Archives | Article archives |
+| `/write` | Write | Write new article |
 | `/search` | Search | Search page |
 | `/about` | About | About page |
 | `/:pathMatch(.*)*` | NotFound | 404 page |
@@ -153,8 +157,8 @@ The project uses CSS variables for theme management, defined in `src/assets/styl
     --text-primary: #333333;
     --text-secondary: #666666;
     --text-muted: #999999;
-    --accent-color: #FF6B6B;
-    --accent-hover: #EE5A5A;
+    --accent-color: #10B981;
+    --accent-hover: #059669;
     --border-color: #e0e0e0;
     --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -165,8 +169,8 @@ The project uses CSS variables for theme management, defined in `src/assets/styl
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
     --text-muted: #808080;
-    --accent-color: #FF6B6B;
-    --accent-hover: #EE5A5A;
+    --accent-color: #34D399;
+    --accent-hover: #10B981;
     --border-color: #333333;
     --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
