@@ -82,5 +82,20 @@
         "excerpt": "一个基于 Vue 3 + Element Plus 构建的现代化图书馆后台管理系统",
         "cover": "images/cover-library.jpg",
         "filename": "library-admin.md"
+    },
+    {
+        "id": "personal blog",
+        "title": "个人博客系统",
+        "date": "2026-06-06",
+        "category": "技术",
+        "tags": [
+            "博客",
+            "Web开发",
+            "前端",
+            "Vue"
+        ],
+        "excerpt": "简要介绍一个基于 Vue 3 的现代化个人博客系统",
+        "cover": "images/cover-personal-blog.jpg",
+        "filename": "personal-blog.md"
     }
 ]
