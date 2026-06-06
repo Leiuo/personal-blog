@@ -78,7 +78,8 @@ watch(keyword, () => {
             
             .list-item {
                 margin-bottom: 20px;
-                width: 800px;
+                max-width: 800px;
+                width: 100%;
             }
         }
 

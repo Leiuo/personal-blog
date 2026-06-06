@@ -130,3 +130,9 @@ body.dark {
     z-index: 999;
     transition: width var(--transition-fast);
 }
+
+@media (max-width: 768px) {
+    .progress-bar {
+        top: 56px;
+    }
+}
