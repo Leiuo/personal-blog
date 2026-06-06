@@ -199,7 +199,8 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .write-page {
-    max-width: 1000px;
+    // max-width: 1000px;
+    width: 80%;
     margin: 0 auto;
     padding: 40px 20px;
 
