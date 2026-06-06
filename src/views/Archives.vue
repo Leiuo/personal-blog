@@ -139,10 +139,12 @@ onMounted(() => {
                     border-bottom: 1px solid var(--border-color);
                     cursor: pointer;
                     transition: all 0.3s;
+                    border-left: 3px solid transparent;
 
                     &:hover {
                         background: var(--bg-primary);
-                        transform: translateX(5px);
+                        // transform: translateX(5px);
+                        border-left: 3px solid var(--accent-color);
 
                         .post-title {
                             color: var(--accent-color);
