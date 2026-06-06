@@ -1,6 +1,20 @@
 [
     {
-        "id": "personal blog",
+        "id": "pidu",
+        "title": "郫都区好玩的地方推荐",
+        "date": "2026-06-06",
+        "category": "旅行",
+        "tags": [
+            "旅行",
+            "游玩",
+            "郫都区"
+        ],
+        "excerpt": "介绍了几个郫都区适合游玩的地方",
+        "cover": "images/cover-pidu.jpg",
+        "filename": "pidu.md"
+    },
+    {
+        "id": "personal-blog",
         "title": "个人博客系统",
         "date": "2026-06-06",
         "category": "技术",
