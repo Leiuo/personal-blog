@@ -90,6 +90,32 @@ export const useBlogStore = defineStore('blog', () => {
         return Array.from(categories)
     })
 
+    // 获取相邻文章（上一篇/下一篇），按日期排序
+    const getAdjacentPosts = (id) => {
+        const sorted = [...posts.value].sort((a, b) => new Date(b.date) - new Date(a.date))
+        const idx = sorted.findIndex(p => p.id === id)
+        if (idx === -1) return { prev: null, next: null }
+        return {
+            prev: idx < sorted.length - 1 ? sorted[idx + 1] : null,
+            next: idx > 0 ? sorted[idx - 1] : null
+        }
+    }
+
+    // 获取相关文章，基于标签交集数量排序
+    const getRelatedPosts = (id, limit = 3) => {
+        const current = posts.value.find(p => p.id === id)
+        if (!current || !current.tags || !current.tags.length) return []
+        return posts.value
+            .filter(p => p.id !== id)
+            .map(p => ({
+                ...p,
+                _shared: p.tags ? p.tags.filter(t => current.tags.includes(t)).length : 0
+            }))
+            .filter(p => p._shared > 0)
+            .sort((a, b) => b._shared - a._shared)
+            .slice(0, limit)
+    }
+
     // 搜索文章
     const searchPosts = (keyword) => {
         if (!keyword) return posts.value
@@ -135,6 +161,8 @@ export const useBlogStore = defineStore('blog', () => {
         getPostsByCategory,
         getAllCategories,
         searchPosts,
+        getAdjacentPosts,
+        getRelatedPosts,
         toggleDarkMode,
         initTheme
     }
