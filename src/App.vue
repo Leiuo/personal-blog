@@ -38,11 +38,16 @@ import ScrollTop from '@/components/ScrollTop.vue'
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.fade-enter-from,
+.fade-enter-from {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
 .fade-leave-to {
     opacity: 0;
+    transform: translateY(-12px);
 }
 </style>
