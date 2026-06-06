@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { parseMarkdown, extractTextFromMarkdown, getReadingTime } from '@/utils/markdown'
+import { loadLocalPosts, getLocalPostById } from '@/utils/localPosts'
 
 const BASE_PATH = import.meta.env.BASE_URL || '/personal-blog/'
 
@@ -17,13 +18,26 @@ export const useBlogStore = defineStore('blog', () => {
             if (!response.ok) throw new Error('Failed to fetch posts')
             const postsList = await response.json()
 
-            posts.value = postsList.map(post => ({
+            const remotePosts = postsList.map(post => ({
                 ...post,
                 readingTime: null
             }))
+
+            // 合并本地文章（排在前面）
+            const localPosts = loadLocalPosts().map(p => ({
+                ...p,
+                readingTime: null,
+                isLocal: true
+            }))
+            posts.value = [...localPosts, ...remotePosts]
         } catch (error) {
             console.error('获取文章失败:', error)
-            posts.value = []
+            // 即使远程加载失败，也展示本地文章
+            posts.value = loadLocalPosts().map(p => ({
+                ...p,
+                readingTime: null,
+                isLocal: true
+            }))
         } finally {
             loading.value = false
         }
@@ -42,17 +56,31 @@ export const useBlogStore = defineStore('blog', () => {
             const postMeta = posts.value.find(p => p.id === id)
             if (!postMeta) throw new Error('Post not found')
 
-            // 获取 Markdown 文件
-            const response = await fetch(`${BASE_PATH}posts/${postMeta.filename || id + '.md'}`)
-            if (!response.ok) throw new Error('Failed to fetch post content')
-            const markdown = await response.text()
+            let content
+            let markdown = ''
 
-            // 移除 frontmatter（如果存在）
-            let content = markdown
-            if (markdown.startsWith('---')) {
-                const endOfFrontmatter = markdown.indexOf('---', 3)
-                if (endOfFrontmatter !== -1) {
-                    content = markdown.substring(endOfFrontmatter + 3)
+            // 本地文章直接从 localStorage 读取内容
+            if (postMeta.isLocal) {
+                const localPost = getLocalPostById(id)
+                if (localPost) {
+                    content = localPost.content || ''
+                    markdown = content
+                } else {
+                    throw new Error('Local post content not found')
+                }
+            } else {
+                // 获取 Markdown 文件
+                const response = await fetch(`${BASE_PATH}posts/${postMeta.filename || id + '.md'}`)
+                if (!response.ok) throw new Error('Failed to fetch post content')
+                markdown = await response.text()
+
+                // 移除 frontmatter（如果存在）
+                content = markdown
+                if (markdown.startsWith('---')) {
+                    const endOfFrontmatter = markdown.indexOf('---', 3)
+                    if (endOfFrontmatter !== -1) {
+                        content = markdown.substring(endOfFrontmatter + 3)
+                    }
                 }
             }
 

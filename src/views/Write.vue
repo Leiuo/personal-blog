@@ -48,11 +48,13 @@
             </section>
 
             <section class="output-section">
-                <h3>生成的 Markdown 文件</h3>
+                <h3>生成与发布</h3>
                 <div class="output-toolbar">
+                    <button class="btn-publish" @click="publishPost">发布到博客</button>
                     <button class="btn-copy" @click="copyOutput">复制内容</button>
                     <button class="btn-download" @click="downloadMarkdown">下载 .md 文件</button>
                 </div>
+                <p v-if="publishMsg" class="publish-msg" :class="{ success: publishOk, error: !publishOk }">{{ publishMsg }}</p>
                 <pre class="output-preview"><code>{{ generatedMarkdown }}</code></pre>
             </section>
         </div>
@@ -61,10 +63,16 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useBlogStore } from '@/stores/blog'
+import { saveLocalPost } from '@/utils/localPosts'
 import MarkdownEditor from '@/components/MarkdownEditor.vue'
 
+const router = useRouter()
 const blogStore = useBlogStore()
+
+const publishMsg = ref('')
+const publishOk = ref(false)
 
 const title = ref('')
 const category = ref('')
@@ -106,6 +114,57 @@ const generatedMarkdown = computed(() => {
     frontmatter.push('')
     return frontmatter.join('\n') + content.value
 })
+
+const publishPost = () => {
+    publishMsg.value = ''
+    if (!title.value.trim()) { publishMsg.value = '请填写文章标题'; return }
+    if (!content.value.trim()) { publishMsg.value = '请填写正文内容'; return }
+
+    const id = 'local-' + (slug.value || Date.now().toString(36))
+    const post = {
+        id,
+        title: title.value.trim(),
+        date: date.value,
+        category: category.value.trim() || '未分类',
+        tags: tags.value,
+        excerpt: excerpt.value.trim() || extractContentPreview(),
+        cover: cover.value.trim() || '',
+        filename: `${id}.md`,
+        content: content.value,
+        isLocal: true
+    }
+
+    saveLocalPost(post)
+
+    // 将新文章插入到博客商店的文章列表最前面
+    blogStore.posts.unshift({
+        id: post.id,
+        title: post.title,
+        date: post.date,
+        category: post.category,
+        tags: post.tags,
+        excerpt: post.excerpt,
+        cover: post.cover,
+        filename: post.filename,
+        isLocal: true,
+        readingTime: null
+    })
+
+    publishOk.value = true
+    publishMsg.value = '发布成功！'
+    setTimeout(() => {
+        router.push(`/blog/${id}`)
+    }, 600)
+}
+
+const extractContentPreview = () => {
+    const text = content.value
+        .replace(/^#{1,6}\s+/gm, '')
+        .replace(/[*_`~>\[\]!#|]/g, '')
+        .replace(/\n+/g, ' ')
+        .trim()
+    return text.length > 150 ? text.slice(0, 150) + '...' : text
+}
 
 const downloadMarkdown = () => {
     const filename = slug.value || 'article'
@@ -236,6 +295,15 @@ onMounted(() => {
                     transition: background .2s;
                 }
 
+                .btn-publish {
+                    background: #22c55e;
+                    color: white;
+
+                    &:hover {
+                        background: #16a34a;
+                    }
+                }
+
                 .btn-copy {
                     background: var(--border-color);
                     color: var(--text-primary);
@@ -253,6 +321,23 @@ onMounted(() => {
                     &:hover {
                         background: var(--accent-hover);
                     }
+                }
+            }
+
+            .publish-msg {
+                margin: 0 0 12px 0;
+                padding: 10px 16px;
+                border-radius: 8px;
+                font-size: 14px;
+
+                &.success {
+                    background: #dcfce7;
+                    color: #166534;
+                }
+
+                &.error {
+                    background: #fef2f2;
+                    color: #991b1b;
                 }
             }
 
