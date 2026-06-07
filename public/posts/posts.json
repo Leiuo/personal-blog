@@ -11,7 +11,9 @@
         ],
         "excerpt": "介绍了几个郫都区适合游玩的地方",
         "cover": "images/cover-pidu.jpg",
-        "filename": "pidu.md"
+        "filename": "pidu.md",
+        "views": "123",
+        "comments": "58"
     },
     {
         "id": "personal-blog",
@@ -26,7 +28,9 @@
         ],
         "excerpt": "简要介绍一个基于 Vue 3 的现代化个人博客系统",
         "cover": "images/cover-personal-blog.jpg",
-        "filename": "personal-blog.md"
+        "filename": "personal-blog.md",
+        "views": "241",
+        "comments": "60"
     },
     {
         "id": "library-admin",
@@ -41,7 +45,9 @@
         ],
         "excerpt": "一个基于 Vue 3 + Element Plus 构建的现代化图书馆后台管理系统",
         "cover": "images/cover-library.jpg",
-        "filename": "library-admin.md"
+        "filename": "library-admin.md",
+        "views": "89",
+        "comments": "44"
     },
     {
         "id": "claude-code-install",
@@ -55,7 +61,9 @@
         ],
         "excerpt": "详细介绍Claude Code的安装和使用方法",
         "cover": "images/cover-claude-code.jpg",
-        "filename": "claude-code-install.md"
+        "filename": "claude-code-install.md",
+        "views": "254",
+        "comments": "101"
     },
     {
         "id": "github-pages",
@@ -69,7 +77,9 @@
         ],
         "excerpt": "详细介绍如何使用 GitHub Pages 部署你的静态网站",
         "cover": "images/cover-github-pages.jpg",
-        "filename": "github-pages.md"
+        "filename": "github-pages.md",
+        "views": "88",
+        "comments": "67"
     },
     {
         "id": "japan-travel",
@@ -83,7 +93,9 @@
         ],
         "excerpt": "分享在日本京都的旅行经历，感受古都的秋天之美",
         "cover": "images/cover-japan.jpg",
-        "filename": "japan-travel.md"
+        "filename": "japan-travel.md",
+        "views": "129",
+        "comments": "95"
     },
     {
         "id": "web-best-practices",
@@ -96,7 +108,9 @@
         ],
         "excerpt": "从开发工具到部署流程，全面了解现代Web开发的最佳实践",
         "cover": "images/cover-web.jpg",
-        "filename": "web-best-practices.md"
+        "filename": "web-best-practices.md",
+        "views": "121",
+        "comments": "55"
     },
     {
         "id": "vue3-guide",
@@ -110,6 +124,8 @@
         ],
         "excerpt": "深入学习Vue 3的组合式API，掌握响应式编程的精髓",
         "cover": "images/cover-vue.jpg",
-        "filename": "vue3-guide.md"
+        "filename": "vue3-guide.md",
+        "views": "210",
+        "comments": "46"
     }
 ]
