@@ -1,5 +1,21 @@
 [
     {
+        "id": "careercompass-introduction",
+        "title": "推荐一个 React 项目 - CareerCompass",
+        "date": "2026-06-08",
+        "category": "技术",
+        "tags": [
+            "Web开发",
+            "前端",
+            "React"
+        ],
+        "excerpt": "分享 CareerCompass 项目的自述文件",
+        "cover": "images/cover-careercompass.svg",
+        "filename": "careercompass-introduction.md",
+        "views": "222",
+        "comments": "63"
+    },
+    {
         "id": "pidu",
         "title": "郫都区好玩的地方推荐",
         "date": "2026-06-06",
@@ -21,7 +37,6 @@
         "date": "2026-06-06",
         "category": "技术",
         "tags": [
-            "博客",
             "Web开发",
             "前端",
             "Vue"
@@ -38,7 +53,6 @@
         "date": "2026-06-05",
         "category": "技术",
         "tags": [
-            "后台管理系统",
             "Web开发",
             "前端",
             "Vue"
