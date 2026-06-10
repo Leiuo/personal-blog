@@ -153,6 +153,10 @@ onMounted(() => {
         }
 
         .sidebar {
+            position: sticky;
+            top: 90px;
+            align-self: start;
+
             .sidebar-widget {
                 background: var(--bg-secondary);
                 border-radius: 8px;
@@ -200,6 +204,12 @@ onMounted(() => {
     @media (max-width: 768px) {
         .content {
             grid-template-columns: 1fr;
+
+            .sidebar {
+                position: static;
+                border-left: none;
+                padding-left: 0;
+            }
         }
 
         .hero {
