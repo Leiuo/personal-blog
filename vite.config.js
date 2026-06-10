@@ -6,7 +6,7 @@ export default defineConfig({
     plugins: [vue({
         include: [/\.vue$/, /\.md$/] // 允许导入 .md 文件
     })],
-    base: '/personal-blog/',
+    base: process.env.VERCEL ? '/' : '/personal-blog/',
     build: {
         outDir: 'dist',
         assetsDir: 'assets',
