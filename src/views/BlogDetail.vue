@@ -514,6 +514,11 @@ onUnmounted(() => {
             padding: 0;
             background-color: transparent;
         }
+
+        // 覆盖 hljs 主题背景，使代码块与文章区形成对比
+        .hljs {
+            background: var(--bg-primary);
+        }
     }
 
     blockquote {

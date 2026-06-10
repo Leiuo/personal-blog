@@ -157,6 +157,29 @@ export const useBlogStore = defineStore('blog', () => {
 
     // 主题模式
     const isDarkMode = ref(false)
+    let darkThemeStyle = null
+
+    // 动态加载 highlight.js 暗色主题 CSS
+    async function loadDarkHighlightTheme() {
+        if (darkThemeStyle) return
+        try {
+            const mod = await import('highlight.js/styles/github-dark.css?inline')
+            darkThemeStyle = document.createElement('style')
+            darkThemeStyle.id = 'hljs-dark-theme'
+            darkThemeStyle.textContent = mod.default
+            document.head.appendChild(darkThemeStyle)
+        } catch (e) {
+            console.error('加载暗色代码高亮主题失败:', e)
+        }
+    }
+
+    // 移除 highlight.js 暗色主题 CSS
+    function removeDarkHighlightTheme() {
+        if (darkThemeStyle) {
+            darkThemeStyle.remove()
+            darkThemeStyle = null
+        }
+    }
 
     const toggleDarkMode = () => {
         isDarkMode.value = !isDarkMode.value
@@ -167,8 +190,10 @@ export const useBlogStore = defineStore('blog', () => {
     const updateTheme = () => {
         if (isDarkMode.value) {
             document.documentElement.classList.add('dark')
+            loadDarkHighlightTheme()
         } else {
             document.documentElement.classList.remove('dark')
+            removeDarkHighlightTheme()
         }
     }
 

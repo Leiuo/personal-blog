@@ -1,6 +1,5 @@
 import { marked } from 'marked'
 import hljs from 'highlight.js'
-import 'highlight.js/styles/github-dark.css'
 
 // 代码高亮缓存，避免重复高亮相同代码块
 const MAX_CACHE_SIZE = 200
