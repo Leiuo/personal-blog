@@ -11,23 +11,22 @@
         "excerpt": "Windows桌面端DeepSeek用量及余额查询小工具",
         "cover": "images/cover-deepseek-monitor.svg",
         "filename": "DeepSeek-Monitor-Windows.md",
-        "views": "102",
+        "views": "302",
         "comments": "77"
     },
     {
         "id": "careercompass-introduction",
-        "title": "推荐一个 React 项目 - CareerCompass",
+        "title": "项目推荐 - CareerCompass",
         "date": "2026-06-08",
         "category": "技术",
         "tags": [
             "项目推荐",
-            "前端",
             "React"
         ],
-        "excerpt": "分享 CareerCompass 项目的自述文件",
+        "excerpt": "面向求职者与雇主的 AI 驱动职业平台",
         "cover": "images/cover-careercompass.svg",
         "filename": "careercompass-introduction.md",
-        "views": "222",
+        "views": "291",
         "comments": "63"
     },
     {
@@ -43,7 +42,7 @@
         "excerpt": "介绍了几个郫都区适合游玩的地方",
         "cover": "images/cover-pidu.jpg",
         "filename": "pidu.md",
-        "views": "123",
+        "views": "213",
         "comments": "58"
     },
     {
@@ -75,7 +74,7 @@
         "excerpt": "一个基于 Vue 3 + Element Plus 构建的现代化图书馆后台管理系统",
         "cover": "images/cover-library.jpg",
         "filename": "library-admin.md",
-        "views": "89",
+        "views": "279",
         "comments": "44"
     },
     {
