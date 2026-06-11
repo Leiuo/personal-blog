@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { parseMarkdown, extractTextFromMarkdown, getReadingTime } from '@/utils/markdown'
 import { loadLocalPosts, getLocalPostById } from '@/utils/localPosts'
+import { compareDates } from '@/utils/date'
 
 const BASE_PATH = import.meta.env.BASE_URL || '/personal-blog/'
 
@@ -120,7 +121,7 @@ export const useBlogStore = defineStore('blog', () => {
 
     // 获取相邻文章（上一篇/下一篇），按日期排序
     const getAdjacentPosts = (id) => {
-        const sorted = [...posts.value].sort((a, b) => new Date(b.date) - new Date(a.date))
+        const sorted = [...posts.value].sort((a, b) => compareDates(b.date, a.date))
         const idx = sorted.findIndex(p => p.id === id)
         if (idx === -1) return { prev: null, next: null }
         return {

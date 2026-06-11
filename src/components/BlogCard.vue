@@ -82,6 +82,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { formatDateRelative } from '@/utils/date'
 
 const props = defineProps({
     post: {
@@ -117,29 +118,8 @@ const categoryColor = computed(() => {
     return `hsl(${hue}, 55%, 45%)`
 })
 
-// 格式化日期
-const formatDate = (date) => {
-    if (!date) return '暂无日期'
-
-    const d = new Date(date)
-    const now = new Date()
-    const diffTime = Math.abs(now - d)
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
-
-    // 如果是最近7天，显示相对时间
-    if (diffDays <= 7) {
-        if (diffDays === 0) return '今天'
-        if (diffDays === 1) return '昨天'
-        return `${diffDays}天前`
-    }
-
-    // 否则显示具体日期
-    const year = d.getFullYear()
-    const month = String(d.getMonth() + 1).padStart(2, '0')
-    const day = String(d.getDate()).padStart(2, '0')
-
-    return `${year}-${month}-${day}`
-}
+// 格式化日期（时区安全，使用共享工具函数）
+const formatDate = (date) => formatDateRelative(date)
 
 // 获取文章摘要（如果没有提供excerpt）
 const getExcerpt = (content) => {

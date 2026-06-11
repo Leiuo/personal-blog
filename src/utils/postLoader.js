@@ -5,6 +5,7 @@ const modules = import.meta.glob('/posts/*.md', {
 })
 
 import matter from 'gray-matter'
+import { compareDates } from '@/utils/date'
 
 // 加载所有文章
 export const loadAllPosts = async () => {
@@ -30,7 +31,7 @@ export const loadAllPosts = async () => {
     }
 
     // 按日期排序
-    return posts.sort((a, b) => new Date(b.date) - new Date(a.date))
+    return posts.sort((a, b) => compareDates(b.date, a.date))
 }
 
 // 根据 ID 加载单篇文章

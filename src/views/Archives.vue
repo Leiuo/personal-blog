@@ -26,6 +26,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useBlogStore } from '@/stores/blog'
+import { formatDate, getDateYear, compareDates } from '@/utils/date'
 
 const router = useRouter()
 const blogStore = useBlogStore()
@@ -36,7 +37,8 @@ const groupedArchives = computed(() => {
     const grouped = {}
 
     posts.forEach(post => {
-        const year = new Date(post.date).getFullYear()
+        const year = getDateYear(post.date)
+        if (!year) return
         if (!grouped[year]) {
             grouped[year] = []
         }
@@ -48,17 +50,11 @@ const groupedArchives = computed(() => {
         .sort((a, b) => b - a)
         .map(year => ({
             year,
-            posts: grouped[year].sort((a, b) => new Date(b.date) - new Date(a.date))
+            posts: grouped[year].sort((a, b) => compareDates(b.date, a.date))
         }))
 })
 
 const totalCount = computed(() => blogStore.posts.length)
-
-const formatDate = (date) => {
-    if (!date) return ''
-    const d = new Date(date)
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
-}
 
 const goToPost = (id) => {
     router.push(`/blog/${id}`)

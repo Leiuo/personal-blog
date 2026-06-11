@@ -90,6 +90,7 @@ import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useBlogStore } from '@/stores/blog'
 import BlogCard from '@/components/BlogCard.vue'
+import { formatDate } from '@/utils/date'
 
 const route = useRoute()
 const router = useRouter()
@@ -109,12 +110,6 @@ const adjacentPosts = computed(() => post.value ? blogStore.getAdjacentPosts(pos
 const prevPost = computed(() => adjacentPosts.value.prev)
 const nextPost = computed(() => adjacentPosts.value.next)
 const relatedPosts = computed(() => post.value ? blogStore.getRelatedPosts(post.value.id, 3) : [])
-
-const formatDate = (date) => {
-    if (!date) return ''
-    const d = new Date(date)
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
-}
 
 const goToTag = (tag) => {
     router.push(`/search?q=${encodeURIComponent(tag)}`)
