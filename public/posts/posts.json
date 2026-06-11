@@ -1,11 +1,26 @@
 [
     {
+        "id": "deepseek-monitor",
+        "title": "项目推荐 - DeepSeekMonitorWindows",
+        "date": "2026-06-11",
+        "category": "技术",
+        "tags": [
+            "DeepSeek",
+            "项目推荐"
+        ],
+        "excerpt": "Windows桌面端DeepSeek用量及余额查询小工具",
+        "cover": "images/cover-deepseek-monitor.svg",
+        "filename": "DeepSeek-Monitor-Windows.md",
+        "views": "102",
+        "comments": "77"
+    },
+    {
         "id": "careercompass-introduction",
         "title": "推荐一个 React 项目 - CareerCompass",
         "date": "2026-06-08",
         "category": "技术",
         "tags": [
-            "Web开发",
+            "项目推荐",
             "前端",
             "React"
         ],
