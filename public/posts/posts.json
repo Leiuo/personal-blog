@@ -1,16 +1,17 @@
 [
     {
         "id": "deepseek-monitor",
-        "title": "项目推荐 - DeepSeekMonitorWindows",
-        "date": "2026-06-11",
+        "title": "个人项目 - DeepSeek Monitor",
+        "date": "2026-06-23",
         "category": "技术",
         "tags": [
-            "DeepSeek",
-            "项目推荐"
+            "个人项目",
+            "Vue",
+            "Electron"
         ],
         "excerpt": "Windows桌面端DeepSeek用量及余额查询小工具",
         "cover": "images/cover-deepseek-monitor.svg",
-        "filename": "DeepSeek-Monitor-Windows.md",
+        "filename": "deepseek-monitor.md",
         "views": "302",
         "comments": "77"
     },
@@ -21,7 +22,8 @@
         "category": "技术",
         "tags": [
             "项目推荐",
-            "React"
+            "React",
+            "GitHub"
         ],
         "excerpt": "面向求职者与雇主的 AI 驱动职业平台",
         "cover": "images/cover-careercompass.svg",
@@ -47,7 +49,7 @@
     },
     {
         "id": "personal-blog",
-        "title": "个人博客系统",
+        "title": "个人项目 - Personal Blog",
         "date": "2026-06-06",
         "category": "技术",
         "tags": [
@@ -63,7 +65,7 @@
     },
     {
         "id": "library-admin",
-        "title": "现代化图书馆后台管理系统",
+        "title": "个人项目 - Library Admin",
         "date": "2026-06-05",
         "category": "技术",
         "tags": [
