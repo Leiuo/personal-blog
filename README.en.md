@@ -1,6 +1,6 @@
 # Personal Blog
 
-[![中文](https://img.shields.io/badge/lang-中文-red.svg)](README.zh-CN.md) [![English](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
+[![中文](https://img.shields.io/badge/lang-中文-red.svg)](README.md) [![English](https://img.shields.io/badge/lang-English-blue.svg)](README.en.md)
 
 A modern personal blog system built with Vue 3.
 
