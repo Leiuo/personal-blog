@@ -2,92 +2,92 @@
 
 [![中文](https://img.shields.io/badge/lang-中文-red.svg)](README.zh-CN.md) [![English](https://img.shields.io/badge/lang-English-blue.svg)](README.md)
 
-A modern personal blog system built with Vue 3.
+一个基于 Vue 3 的现代化个人博客系统。
 
-## Features
+## 功能特性
 
-- **Markdown Articles** — Write in Markdown format with syntax-highlighted code blocks
-- **Article Writing** — Built-in Markdown editor with hotkeys and live preview
-- **Article Search** — Full-text search by title, excerpt, and tags
-- **Category Management** — Filter articles by category
-- **Archives Page** — Year-based archive display
-- **Responsive Design** — Desktop + Mobile adaptive layout
-- **Dark Mode** — Light/dark theme toggle, auto-follows system preference
-- **Reading Experience** — Reading progress bar + Back-to-top button + Table of Contents + Prev/Next navigation
-- **Auto Deploy** — Push-to-deploy via GitHub Actions to GitHub Pages
+- **Markdown 文章** — 支持 Markdown 格式编写，代码语法高亮
+- **文章写作** — 内置 Markdown 编辑器，支持快捷键和实时预览
+- **文章搜索** — 按标题、摘要、标签全文搜索
+- **分类管理** — 按分类筛选文章
+- **归档页面** — 按年份归档展示
+- **响应式设计** — 桌面端 + 移动端适配
+- **深色模式** — 明暗主题切换，自动跟随系统偏好
+- **阅读体验** — 阅读进度条 + 回到顶部按钮 + 文章目录 + 上下篇导航
+- **自动部署** — GitHub Actions 推送即部署到 GitHub Pages
 
-## Tech Stack
+## 技术栈
 
-- **Framework**: Vue 3 (Composition API)
-- **Build Tool**: Vite + Rolldown
-- **Routing**: Vue Router 4 (Hash Mode)
-- **State Management**: Pinia
-- **Styling**: SCSS + CSS Variables (Dark Mode)
+- **框架**: Vue 3 (Composition API)
+- **构建工具**: Vite + Rolldown
+- **路由**: Vue Router 4 (Hash 模式)
+- **状态管理**: Pinia
+- **样式**: SCSS + CSS 变量（深色模式）
 - **Markdown**: marked + highlight.js + gray-matter
-- **Icons**: Inline SVG (Lucide-style)
+- **图标**: 内联 SVG（Lucide 风格）
 
-## Quick Start
+## 快速开始
 
-### Install Dependencies
+### 安装依赖
 
 ```bash
 npm install
 ```
 
-### Development
+### 开发模式
 
 ```bash
 npm run dev
 ```
 
-Open http://localhost:3001 to view it in the browser.
+访问 http://localhost:3001 查看效果。
 
-### Production Build
+### 构建生产版本
 
 ```bash
 npm run build
 ```
 
-Build output will be in the `dist` directory.
+构建产物将输出到 `dist` 目录。
 
-### Preview Production Build
+### 预览生产版本
 
 ```bash
 npm run preview
 ```
 
-## Project Structure
+## 项目结构
 
 ```
 personal-blog/
-├── .github/workflows/       # GitHub Actions auto-deploy
-├── public/                  # Static assets
-│   ├── images/              # Article covers & avatar
-│   ├── posts/               # Markdown articles
-│   │   ├── posts.json       # Article metadata
-│   │   └── *.md             # Article content
+├── .github/workflows/       # GitHub Actions 自动部署
+├── public/                  # 静态资源
+│   ├── images/              # 文章封面 & 头像
+│   ├── posts/               # Markdown 文章
+│   │   ├── posts.json       # 文章元数据
+│   │   └── *.md             # 文章内容
 │   ├── favicon.svg
 │   ├── icons.svg
-│   └── .nojekyll            # Disable GitHub Pages Jekyll processing
+│   └── .nojekyll            # 禁用 GitHub Pages Jekyll 处理
 ├── src/
-│   ├── assets/styles/       # Global styles & CSS variable themes
-│   ├── components/          # Shared components
-│   │   ├── BlogCard.vue     # Article card
-│   │   ├── Header.vue       # Navbar + Search + Theme toggle
-│   │   ├── Footer.vue       # Footer
-│   │   ├── ScrollTop.vue    # Reading progress + Back to top
-│   │   └── MarkdownEditor.vue # Markdown editor
-│   ├── router/index.js      # Route configuration
-│   ├── stores/blog.js       # Pinia store (articles + theme)
-│   ├── utils/markdown.js    # Markdown parser
-│   ├── views/               # Pages
-│   │   ├── Home.vue         # Homepage
-│   │   ├── BlogDetail.vue   # Article detail
-│   │   ├── Category.vue     # Category list
-│   │   ├── Archives.vue     # Article archives
-│   │   ├── Search.vue       # Search
-│   │   ├── Write.vue        # Write article
-│   │   ├── About.vue        # About
+│   ├── assets/styles/       # 全局样式 & CSS 变量主题
+│   ├── components/          # 通用组件
+│   │   ├── BlogCard.vue     # 文章卡片
+│   │   ├── Header.vue       # 导航栏 + 搜索 + 主题切换
+│   │   ├── Footer.vue       # 页脚
+│   │   ├── ScrollTop.vue    # 阅读进度条 + 回到顶部
+│   │   └── MarkdownEditor.vue # Markdown 编辑器
+│   ├── router/index.js      # 路由配置
+│   ├── stores/blog.js       # Pinia 状态（文章 + 主题）
+│   ├── utils/markdown.js    # Markdown 解析
+│   ├── views/               # 页面
+│   │   ├── Home.vue         # 首页
+│   │   ├── BlogDetail.vue   # 文章详情
+│   │   ├── Category.vue     # 分类列表
+│   │   ├── Archives.vue     # 文章归档
+│   │   ├── Search.vue       # 搜索
+│   │   ├── Write.vue        # 写作页面
+│   │   ├── About.vue        # 关于
 │   │   └── NotFound.vue     # 404
 │   ├── App.vue
 │   └── main.js
@@ -96,59 +96,59 @@ personal-blog/
 └── package.json
 ```
 
-## Usage
+## 使用说明
 
-### Adding a New Article
+### 添加新文章
 
-1. Create a new Markdown file in the `public/posts/` directory
-2. Add the article metadata to `public/posts/posts.json`:
+1. 在 `public/posts/` 目录下创建新的 Markdown 文件
+2. 在 `public/posts/posts.json` 中添加文章元数据：
 
 ```json
 {
   "id": "article-id",
-  "title": "Article Title",
-  "category": "Category",
+  "title": "文章标题",
+  "category": "分类",
   "date": "2026-05-01",
-  "tags": ["Tag1", "Tag2"],
-  "excerpt": "Article excerpt",
+  "tags": ["标签1", "标签2"],
+  "excerpt": "文章摘要",
   "cover": "images/cover.jpg",
   "filename": "article-id.md"
 }
 ```
 
-### Markdown Article Format
+### Markdown 文章格式
 
-Articles use standard Markdown syntax. Metadata is managed in `posts.json`; the article file only needs the body content.
+文章使用标准 Markdown 语法，元数据在 `posts.json` 中管理，文章文件只写正文即可。
 
 ```markdown
-## Section Title
+## 章节标题
 
-Article body content, supports `code`, **bold**, *italic*, and other standard syntax.
+文章正文内容，支持 `代码`、**加粗**、*斜体* 等标准语法。
 
 ​```js
-// Code blocks with automatic syntax highlighting
+// 代码块自动语法高亮
 console.log('hello')
 ​```
 ```
 
-> Tip: Place article cover images in `public/images/` and reference them with relative paths in `posts.json`, e.g. `"cover": "images/my-cover.jpg"`.
+> 提示：文章封面图放到 `public/images/`，在 `posts.json` 中用相对路径引用，如 `"cover": "images/my-cover.jpg"`。
 
-## Route Structure
+## 路由结构
 
-| Route | Page | Description |
-|-------|------|-------------|
-| `/` | Home | Homepage, displays latest articles |
-| `/blog/:id` | BlogDetail | Article detail page |
-| `/category/:name` | Category | Category article list |
-| `/archives` | Archives | Article archives |
-| `/write` | Write | Write new article |
-| `/search` | Search | Search page |
-| `/about` | About | About page |
-| `/:pathMatch(.*)*` | NotFound | 404 page |
+| 路由 | 页面 | 描述 |
+|------|------|------|
+| `/` | Home | 首页，展示最新文章 |
+| `/blog/:id` | BlogDetail | 文章详情页 |
+| `/category/:name` | Category | 分类文章列表 |
+| `/archives` | Archives | 文章归档 |
+| `/write` | Write | 写作页面 |
+| `/search` | Search | 搜索页面 |
+| `/about` | About | 关于页面 |
+| `/:pathMatch(.*)*` | NotFound | 404 页面 |
 
-## Theme Customization
+## 主题定制
 
-The project uses CSS variables for theme management, defined in `src/assets/styles/main.css`. Change the `--accent-color` to swap the primary color:
+项目使用 CSS 变量管理主题，定义在 `src/assets/styles/main.css`。修改 `--accent-color` 即可换主色：
 
 ```css
 :root {
@@ -176,27 +176,27 @@ The project uses CSS variables for theme management, defined in `src/assets/styl
 }
 ```
 
-- Theme preference is automatically saved to `localStorage`
-- Toggle manually via the button on the right side of the navbar
-- First visit follows the system `prefers-color-scheme` automatically
+- 主题偏好自动保存到 `localStorage`
+- 手动切换点击导航栏右侧按钮
+- 首次访问自动跟随系统 `prefers-color-scheme`
 
-## Deployment
+## 部署
 
-Pushing to the `main` branch automatically triggers GitHub Actions to build and deploy to GitHub Pages.
+推送 `main` 分支自动触发 GitHub Actions 构建并部署到 GitHub Pages。
 
-### Prerequisites
+### 前置条件
 
-1. Repository Settings → Pages → Source → select **"GitHub Actions"**
-2. Repository Settings → Actions → General → select **"Allow all actions"**
-3. The `.nojekyll` file must exist in the `public/` directory (already included)
+1. 仓库 Settings → Pages → Source 选 **"GitHub Actions"**
+2. 仓库 Settings → Actions → General → 选 **"Allow all actions"**
+3. `public/` 目录下必须有 `.nojekyll` 文件（已包含）
 
-Without `.nojekyll`, GitHub's Jekyll engine will ignore files starting with `_` (such as Vite-generated `_plugin-vue_export-helper-*.js`), causing a blank page after deployment.
+不添加 `.nojekyll` 会导致 GitHub 的 Jekyll 引擎忽略 `_` 开头的文件（如 Vite 生成的 `_plugin-vue_export-helper-*.js`），造成部署后页面白屏。
 
-### Manual Deployment
+### 手动部署
 
 ```bash
 npm run build
-# Upload dist/ to any static hosting service (Vercel, Netlify, Cloudflare Pages, etc.)
+# 将 dist/ 上传到任意静态托管服务（Vercel、Netlify、Cloudflare Pages 等）
 ```
 
-The `base` in Vite configuration must match the deployment path. Currently set to `/personal-blog/`; modify `vite.config.js` as needed when deploying to other services.
+Vite 配置中 `base` 需与部署路径一致。当前为 `/personal-blog/`，部署到其他服务时按需修改 `vite.config.js`。
